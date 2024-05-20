@@ -2,7 +2,6 @@ package com.example.coffee_time.service;
 
 import com.example.coffee_time.entity.Product;
 import com.example.coffee_time.repository.ProductRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
