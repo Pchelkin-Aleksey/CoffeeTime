@@ -1,17 +1,13 @@
 package com.example.coffee_time.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/GET")
+@Controller
 public class ProductController {
-
     @GetMapping("/product")
-    public void getProduct(){
-        return ;
+    public String getProduct(){
+        return "/product/form";
     }
-
 
 }

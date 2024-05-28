@@ -6,7 +6,3 @@ create table if not exists product
     id BIGSERIAL PRIMARY KEY,
     title varchar(32) NOT NULL UNIQUE
 );
-
-insert into product(title)
-values ('Test1'),
-       ('Test2');
