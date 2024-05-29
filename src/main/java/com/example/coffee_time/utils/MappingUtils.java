@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MappingUtils {
 
-    public ProductDto mapToProductDto(Product entity){
+    public ProductDto mapToProductDto(Product productEntity){
         ProductDto dto = new ProductDto();
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
+        dto.setId(productEntity.getId());
+        dto.setName(productEntity.getName());
+        dto.setDescription(productEntity.getDescription());
         return dto;
     }
 
@@ -18,6 +19,7 @@ public class MappingUtils {
         Product entity = new Product();
         entity.setId(dto.getId());
         entity.setName(dto.getName());
+        entity.setDescription(dto.getDescription());
         return entity;
     }
 }

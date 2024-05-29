@@ -11,13 +11,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor // что это значит?
 public class ProductService {
 
     private final ProductRepository productRepository;
     private final String description = "none";
 
     MappingUtils mappingUtils;
+
+
     public List<ProductDto> findAll() {
         return productRepository.findAll().stream()
                 .map(mappingUtils::mapToProductDto)
@@ -33,9 +35,4 @@ public class ProductService {
         productRepository.delete(product);
     }
 
-    public void Descriptions(List<ProductDto> list){
-        list.forEach(productDto ->
-                productDto.setDescription(description)
-        );
-    }
 }

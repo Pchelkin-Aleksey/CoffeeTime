@@ -32,6 +32,10 @@
     </tr>
     </thead>
     <tbody>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.name}">
+            <td th:text="${product}">
+        </tr>
     </tbody>
 </table>
 </body>
