@@ -10,7 +10,7 @@ public class MappingUtils {
     public ProductDto mapToProductDto(Product productEntity){
         ProductDto dto = new ProductDto();
         dto.setId(productEntity.getId());
-        dto.setName(productEntity.getName());
+        dto.setTitle(productEntity.getTitle());
         dto.setDescription(productEntity.getDescription());
         return dto;
     }
@@ -18,7 +18,7 @@ public class MappingUtils {
     public Product mapToProductEntity(ProductDto dto){
         Product entity = new Product();
         entity.setId(dto.getId());
-        entity.setName(dto.getName());
+        entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());
         return entity;
     }
