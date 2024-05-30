@@ -5,7 +5,6 @@ import com.example.coffee_time.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
@@ -14,13 +13,6 @@ public class IndexController {
     @GetMapping("/")
     public String getIndex(){
         return "product/form";
-    }
-
-    @GetMapping("/list")
-    public ModelAndView getList(){
-        ModelAndView mav = new ModelAndView("product/list");
-        mav.addObject("products", productRepository.findAll());
-        return mav;
     }
 
 }

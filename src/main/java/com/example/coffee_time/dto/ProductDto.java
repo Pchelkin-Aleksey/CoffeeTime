@@ -1,9 +1,11 @@
 package com.example.coffee_time.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductDto {
     private Long id;
     private String title;

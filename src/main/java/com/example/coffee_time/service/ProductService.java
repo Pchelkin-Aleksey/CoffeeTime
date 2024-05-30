@@ -5,6 +5,7 @@ import com.example.coffee_time.entity.Product;
 import com.example.coffee_time.repository.ProductRepository;
 import com.example.coffee_time.utils.MappingUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,12 +15,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor // что это значит?
 public class ProductService {
 
-    private final ProductRepository productRepository;
-    private final String description = "none";
-
-    MappingUtils mappingUtils;
-
-
+    private final ProductRepository productRepository; // была ошибка не был написан модификатор final
+    private final MappingUtils mappingUtils;
     public List<ProductDto> findAll() {
         return productRepository.findAll().stream()
                 .map(mappingUtils::mapToProductDto)
@@ -28,8 +25,13 @@ public class ProductService {
     public ProductDto findById(Long id) {
         return  mappingUtils.mapToProductDto(productRepository.findById(id).orElse(new Product()));
     }
-    public ProductDto save(Product product) {
-        return mappingUtils.mapToProductDto(productRepository.save(product));
+
+    public List<ProductDto> findAllProducts() {
+        return mappingUtils.productEntitytoDTOList(productRepository.findAll());
+    }
+    public ProductDto saveProduct(ProductDto product) {
+        System.out.println("Шаг 2");
+        return mappingUtils.mapToProductDto(productRepository.save(mappingUtils.mapToProductEntity(product)));
     }
     public void delete(Product product) {
         productRepository.delete(product);

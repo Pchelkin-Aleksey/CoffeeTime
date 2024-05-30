@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,22 +21,51 @@
         }
     </style>
 </head>
+<!--<body>-->
+<!--<h1>Product List</h1>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Description</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--        <tr th:each="product: ${products}">-->
+<!--            <td th:text="${product.id}"></td>-->
+<!--            <td th:text="${product.title}">-->
+<!--            <td th:text="${product.description}">-->
+<!--        </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+
 <body>
-<h1>Product List</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
     </tr>
     </thead>
     <tbody>
-        <tr th:each="product: ${products}">
-            <td th:text="${product.title}">
-            <td th:text="${product.description}">
-        </tr>
+    <tr th:each="prod : ${products}">
+        <td th:text="${prod.id}"></td>
+        <td th:text="${prod.title}"></td>
+        <td th:text="${prod.description}"></td>
+        <td>
+            <a th:href="@{/product/{id}(id=${prod.id})}">EDIT</a>
+        </td>
+        <td>
+            <a th:href="@{/product/{id}/delete(id=${prod.id})}">DELETE</a>
+        </td>
+    </tr>
     </tbody>
 </table>
+<a th:href="@{/product/new }">ADD PRODUCT</a>
 </body>
 </html>
