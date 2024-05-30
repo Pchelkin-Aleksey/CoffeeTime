@@ -3,7 +3,6 @@ package com.example.coffee_time.utils;
 import com.example.coffee_time.dto.ProductDto;
 import com.example.coffee_time.entity.Product;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +16,9 @@ public class MappingUtils {
 
         return productDtos;
     }
+
     public ProductDto mapToProductDto(Product productEntity){
         ProductDto dto = new ProductDto();
-        System.out.println("Ошибка?");
         dto.setId(productEntity.getId());
         dto.setTitle(productEntity.getTitle());
         dto.setDescription(productEntity.getDescription());
@@ -27,8 +26,6 @@ public class MappingUtils {
     }
 
     public Product mapToProductEntity(ProductDto dto){
-        System.out.println("Шаг 3");
-        System.out.println(dto.getId() + dto.getTitle() + dto.getDescription());
         Product entity = new Product();
         entity.setId(dto.getId());
         entity.setTitle(dto.getTitle());

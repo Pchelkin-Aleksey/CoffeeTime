@@ -1,6 +1,5 @@
 package com.example.coffee_time.controller;
 
-import com.example.coffee_time.entity.Product;
 import com.example.coffee_time.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,5 +13,4 @@ public class IndexController {
     public String getIndex(){
         return "product/form";
     }
-
 }

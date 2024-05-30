@@ -5,7 +5,6 @@ import com.example.coffee_time.entity.Product;
 import com.example.coffee_time.repository.ProductRepository;
 import com.example.coffee_time.utils.MappingUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor // что это значит?
 public class ProductService {
 
-    private final ProductRepository productRepository; // была ошибка не был написан модификатор final
+    private final ProductRepository productRepository;
     private final MappingUtils mappingUtils;
     public List<ProductDto> findAll() {
         return productRepository.findAll().stream()
@@ -30,11 +29,10 @@ public class ProductService {
         return mappingUtils.productEntitytoDTOList(productRepository.findAll());
     }
     public ProductDto saveProduct(ProductDto product) {
-        System.out.println("Шаг 2");
         return mappingUtils.mapToProductDto(productRepository.save(mappingUtils.mapToProductEntity(product)));
     }
-    public void delete(Product product) {
-        productRepository.delete(product);
+    public void delete(ProductDto product) {
+        productRepository.delete(mappingUtils.mapToProductEntity(product));
     }
 
 }

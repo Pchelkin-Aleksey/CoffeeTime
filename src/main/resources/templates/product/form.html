@@ -50,45 +50,35 @@
         }
     </style>
 </head>
-<!--<body>-->
-
-<!--<div class="container">-->
-<!--    <h2>Создание нового продукта</h2>-->
-<!--    <form action="/save" method="POST">-->
-<!--        <div class="form-group">-->
-<!--            <label for="name">Название продукта:</label>-->
-<!--            <input type="text" id="name" name="name"   required>-->
-<!--&lt;!&ndash;            th:value="${product.title}"&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <label for="description">Описание:</label>-->
-<!--            <textarea id="description" name="description"  required></textarea>-->
-<!--&lt;!&ndash;            th:value="${product.description}"&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <button type="submit">Создать продукт</button>-->
-<!--        </div>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--</body>-->
-
 <body>
-<form action="/save" method="post" th:if = "${product!=null}">
-    ID : <input type="hidden" name="id" th:value="${product.id}">
-    Name : <input type="text" name="title" th:value="${product.title}">
-    Description : <input type="text" name="description" th:value="${product.description}">
-    <button>SUBMIT</button>
-</form>
-<form action="/save" method="post" th:if = "${product==null}">
-<!--    ID : <input type="text" name="id">-->
-    Name : <input type="text" name="title">
-    Description : <input type="text" name="description">
-    <button>SUBMIT</button>
-</form>
-<a th:href="@{/}">GO HOME</a>
+
+<div class="container">
+    <h2>Создание нового продукта</h2>
+    <form action="/save" method="post" th:if = "${product!=null}">
+        <div class="form-group">
+            <input type="hidden" name="id" id="id" th:value="${product.id}">
+        </div>
+        <div class="form-group">
+            <label for="name">Название продукта:</label>
+            <input type="text" id="name" name="title" th:value="${product.title}">
+        </div>
+        <div class="form-group">
+            <label for="description">Описание:</label>
+            <input type="text" name="description" id="description" th:value="${product.description}">
+        </div>
+        <div class="form-group">
+            <button type="submit">Создать продукт</button>
+        </div>
+    </form>
+
+    <form action="/save" method="post" th:if = "${product==null}">
+        <input type="text" name="title">
+        <input type="text" name="description">
+        <div class="form-group">
+            <button type="submit">Создать продукт</button>
+        </div>
+    </form>
+    <a th:href="@{/}">GO HOME</a>
+</div>
 </body>
-
-
-
 </html>
