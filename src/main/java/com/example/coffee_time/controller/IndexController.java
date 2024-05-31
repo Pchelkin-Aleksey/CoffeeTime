@@ -11,6 +11,6 @@ public class IndexController {
     private ProductRepository productRepository;
     @GetMapping("/")
     public String getIndex(){
-        return "product/form";
+        return "redirect:/product";
     }
 }
