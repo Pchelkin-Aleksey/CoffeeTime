@@ -3,15 +3,15 @@ package com.example.coffee_time.service;
 import com.example.coffee_time.dto.ProductDto;
 import com.example.coffee_time.entity.Product;
 import com.example.coffee_time.repository.ProductRepository;
-import com.example.coffee_time.utils.MappingUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.example.coffee_time.utils.MappingUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor // что это значит?
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;

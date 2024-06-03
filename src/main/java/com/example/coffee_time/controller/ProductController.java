@@ -45,5 +45,4 @@ public class ProductController {
         productService.delete(productDTO);
         return "redirect:/product";
     }
-
 }
