@@ -54,7 +54,7 @@
 
 <div class="container">
     <h2>Создание нового продукта</h2>
-    <form action="/save" method="post" th:if = "${product!=null}">
+    <form action="/product/save" method="post" th:if = "${product!=null}">
         <div class="form-group">
             <input type="hidden" name="id" id="id" th:value="${product.id}">
         </div>
@@ -71,7 +71,7 @@
         </div>
     </form>
 
-    <form action="/save" method="post" th:if = "${product==null}">
+    <form action="/product/save" method="post" th:if = "${product==null}">
         <input type="text" name="title">
         <input type="text" name="description">
         <div class="form-group">
