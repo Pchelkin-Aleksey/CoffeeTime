@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<table class = "table table-striped fs-5" th:id="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">EDIT</th>
+        <th scope="col">DELETE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod : ${products}" scope="row">
+        <td th:text="${prod.id}" > </td>
+        <td th:text="${prod.title}"></td>
+        <td th:text="${prod.description}"></td>
+        <td>
+            <a th:href="@{/product/{id}(id=${prod.id})}" scope="row">EDIT</a>
+        </td>
+        <td>
+            <a th:href="@{/product/{id}/delete(id=${prod.id})}" scope="row">DELETE</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
