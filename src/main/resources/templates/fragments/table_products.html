@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<body>
-<table class = "table table-striped fs-5" th:id="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">NAME</th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">EDIT</th>
-        <th scope="col">DELETE</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="prod : ${products}" scope="row">
-        <td th:text="${prod.id}" > </td>
-        <td th:text="${prod.title}"></td>
-        <td th:text="${prod.description}"></td>
-        <td>
-            <a th:href="@{/product/{id}(id=${prod.id})}" scope="row">EDIT</a>
-        </td>
-        <td>
-            <a th:href="@{/product/{id}/delete(id=${prod.id})}" scope="row">DELETE</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-</body>
+<link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
+<link rel="stylesheet" href="https://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+<link href="https://bootstraptema.ru/snippets/element/2020/bootstrap-table.css" rel="stylesheet" />
+<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://bootstraptema.ru/snippets/element/2020/bootstrap-table.js"></script>
+
+<div class="wrapper">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    <div class="fresh-table toolbar-color-blue">
+
+        <div class="toolbar">
+            <button id="alertBtn" class="btn btn-default">Alert</button>
+        </div>
+
+        <table id="fresh-table" class = "table" th:id="table">
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name" data-sortable="true">NAME</th>
+                <th data-field="description" data-sortable="true">DESCRIPTION</th>
+                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+            </tr>
+            <tr th:each="prod : ${products}" scope="row">
+                                <td th:text="${prod.id}"></td>
+                                <td th:text="${prod.title}"></td>
+                                <td th:text="${prod.description}"></td>
+                <td>
+                    <a th:href="@{/product/{id}(id=${prod.id})}" class="btn btn-default" title="Edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a th:href="@{/product/{id}/delete(id=${prod.id})}" class="btn btn-danger" title="Delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    </div>
+    </div>
+    </div>
+</div>
+<script>
+    // Add JavaScript for button actions if needed
+    $(document).ready(function() {
+        $('.btn-edit').click(function() {
+            alert('Edit button clicked');
+        });
+        $('.btn-delete').click(function() {
+            alert('Delete button clicked');
+        });
+    });
+</script>
+
+<!--            <tbody>-->
+<!--            <tr th:each="prod : ${products}" scope="row">-->
+<!--                <td th:text="${prod.id}" > </td>-->
+<!--                <td th:text="${prod.title}"></td>-->
+<!--                <td th:text="${prod.description}"></td>-->
+<!--                <td>-->
+<!--                    <a th:href="@{/product/{id}(id=${prod.id})}" scope="row">EDIT</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a th:href="@{/product/{id}/delete(id=${prod.id})}" scope="row">DELETE</a>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+
+
 </html>
 
 
