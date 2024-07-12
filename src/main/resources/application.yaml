@@ -22,3 +22,7 @@ spring:
     prefix: file:src/main/resources/templates/
     static-locations: file:src/main/resources/static/
     period: 0
+
+telegram:
+  bot-name: TimeCoffee_bot
+  bot-token: 7150899789:AAFLIonISJWSOBGLWMFnf8ZySkkbDTzacSc
