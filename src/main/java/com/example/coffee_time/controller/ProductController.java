@@ -8,26 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/product")
+    @GetMapping()
     public String getProduct(Model model){
         List<ProductDto> products = productService.findAllProducts();
         model.addAttribute("products", products);
         return "/product/list";
     }
 
-    @GetMapping("/product/new")
+    @GetMapping("/new")
     public String createProduct(){
         return "/product/form";
     }
 
-    @GetMapping(value = "/product/{id}")
+    @GetMapping(value = "/{id}")
     public String editPage(@PathVariable Long id, Model model) {
         ProductDto product = productService.findById(id);
         model.addAttribute("product", product);
@@ -40,7 +43,7 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping(value = "/product/{id}/delete")
+    @GetMapping(value = "/{id}/delete")
     public String deleteProduct(ProductDto productDTO) {
         productService.delete(productDTO);
         return "redirect:/product";

@@ -1,7 +1,9 @@
 package com.example.coffee_time.utils;
 
 import com.example.coffee_time.dto.ProductDto;
+import com.example.coffee_time.dto.UserDTO;
 import com.example.coffee_time.entity.Product;
+import com.example.coffee_time.entity.User;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
